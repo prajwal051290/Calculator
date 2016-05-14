@@ -7,11 +7,11 @@ Images:<br/><br/>
 1. Addition<br/>
 <img src = "https://github.com/prajwal051290/Calculator/blob/master/ProjectScreenshots/Addition.PNG"/><br/><br/>
 
-1. Subtraction<br/>
+2. Subtraction<br/>
 <img src = "https://github.com/prajwal051290/Calculator/blob/master/ProjectScreenshots/Subtraction.PNG"/><br/><br/>
 
-1. Multiplication<br/>
+3. Multiplication<br/>
 <img src = "https://github.com/prajwal051290/Calculator/blob/master/ProjectScreenshots/Multiplication.PNG"/><br/><br/>
 
-1. Divide By Zero error<br/>
+4. Divide By Zero error<br/>
 <img src = "https://github.com/prajwal051290/Calculator/blob/master/ProjectScreenshots/DivideByZero.PNG"/><br/><br/>
