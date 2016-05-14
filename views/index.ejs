@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html ng-app="calcApp">
+
+  <head>
+  
+    <title>Calculator Application</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    
+    <style>
+	body {
+    	background-color: #b0c4de;
+	}
+	
+	input.operands{
+		padding: 10px;
+  		border: solid 5px #c9c9c9;
+  		transition: border 0.3s;
+	}
+	
+	</style>
+    
+  </head>
+  
+  <body>
+  
+  <h2 align="center">** CALCULATOR APPLICATION **</h2>
+ 
+  <br><br>
+ 
+  <form ng-controller="formController" align="center">
+  
+  <input type="number" placeholder="Operand1 Eg: 0-9" ng-model="firstOperand" class="operands">
+  <strong>{{symbol}}</strong>
+  <input type="number" placeholder="Operand2 Eg: 0-9" ng-model="secondOperand" class="operands">
+  
+  <br><br>
+  
+  <button type="button" class="btn btn-primary" ng-click="addOperands('ADD')">Add</button>
+  <button type="button" class="btn btn-primary" ng-click="addOperands('SUB')">Subtract</button>
+  <button type="button" class="btn btn-primary" ng-click="addOperands('MUL')">Multiply</button>
+  <button type="button" class="btn btn-primary" ng-click="addOperands('DIV')">Division</button>
+
+  <br><br>
+  
+  <input type="text" placeholder="RESULT" ng-value="result" disabled class="operands" size="49"> 
+  	  
+  </form>
+  
+<script>
+  
+	var app = angular.module('calcApp', []);
+	app.controller('formController', initiateCalc); 
+			
+	function initiateCalc($scope, $http) {
+  		
+  		$scope.addOperands = function(operationType){
+  		
+  			var postData = {firstOperand:$scope.firstOperand, secondOperand:$scope.secondOperand, opType:operationType};
+  			
+  			if (operationType == 'ADD'){
+  				$scope.symbol = '+'	;
+  			}
+  			
+  			if (operationType == 'SUB'){
+  				$scope.symbol = '-'	;
+  			}
+  			
+  			if (operationType == 'MUL'){
+  				$scope.symbol = '*'	;
+  			}
+  			
+  			
+  			if (operationType == 'DIV'){
+  				$scope.symbol = '/'	;
+  			}
+  			
+  			$http.post("/", postData)
+  			.success(function(data) {
+  				console.log("Printing result...!!!");
+            	$scope.result = data;
+        	})
+  		}
+  			
+  	}
+	
+</script>
+  
+  
+  </body>
+  
+</html>
